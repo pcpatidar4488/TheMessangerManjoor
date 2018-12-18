@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "1058410634054",
-    "firebase_url": "https://themessanger-a7330.firebaseio.com",
-    "project_id": "themessanger-a7330",
-    "storage_bucket": "themessanger-a7330.appspot.com"
+    "project_number": "679820774513",
+    "firebase_url": "https://themessanger-9fd1f.firebaseio.com",
+    "project_id": "themessanger-9fd1f",
+    "storage_bucket": "themessanger-9fd1f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1058410634054:android:4dae886d54dd1c47",
+        "mobilesdk_app_id": "1:679820774513:android:4dae886d54dd1c47",
         "android_client_info": {
           "package_name": "com.example.manjooralam.themessanger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1058410634054-fol30clpd6jngf012hnos3ufm4ofo3vr.apps.googleusercontent.com",
+          "client_id": "679820774513-5mhgia2h5utlc2top7ov20q1km2cgqt9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.manjooralam.themessanger",
-            "certificate_hash": "dddaad0e63dc95f9074c5fb3ff459dbd85f98628"
+            "certificate_hash": "61e72a406952eb740bacdf1f79bd35c43c87b6e0"
           }
         },
         {
-          "client_id": "1058410634054-7vkgqn2s0v78otu1p7k5r66getdvtcn8.apps.googleusercontent.com",
+          "client_id": "679820774513-sgd1ure6d0cmi18b6qlvh3q3mjfm8etl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDnnDtaMDWmk8AtuSiUySxvyIKqJd5nLP4"
+          "current_key": "AIzaSyC2m9JZVyzWPPrPuFMSSF7rhys2cgtqIq8"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1058410634054-7vkgqn2s0v78otu1p7k5r66getdvtcn8.apps.googleusercontent.com",
+              "client_id": "679820774513-sgd1ure6d0cmi18b6qlvh3q3mjfm8etl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

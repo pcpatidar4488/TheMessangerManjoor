@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.manjooralam.themessanger"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion 19
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,40 +19,30 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.google.firebase:firebase-database:10.0.1'
-    compile 'com.google.firebase:firebase-database:10.0.1'
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
-    compile 'com.google.firebase:firebase-storage:10.0.1'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.google.firebase:firebase-auth:10.0.1'
-    compile 'com.android.support:design:26.+'
-    compile 'ch.acra:acra:4.6.2'
-    compile 'de.hdodenhof:circleimageview:2.1.0'
-    compile 'com.theartofdev.edmodo:android-image-cropper:2.5.+'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'id.zelory:compressor:2.1.0'
-    compile 'com.google.firebase:firebase-messaging:10.0.1'
-    testCompile 'junit:junit:4.12'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'uk.co.chrisjenx:calligraphy:2.1.0'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+    implementation 'ch.acra:acra:4.6.2'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.+'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'id.zelory:compressor:2.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:design:28.+'
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.google.firebase:firebase-storage:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 apply plugin: 'com.google.gms.google-services'

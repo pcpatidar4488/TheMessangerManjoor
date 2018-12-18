@@ -482,7 +482,7 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
 
 
 
-
+    String thumbImgUrl;
     private void uploadImageToServer() {
         if (imageUri != null) {
             StorageReference storageRef = FirebaseStorage.getInstance().getReference();
@@ -513,8 +513,13 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener {
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 
                     if(task.isSuccessful()){
-                        final String thumbImgUrl = task.getResult().getDownloadUrl().toString();
-
+                      //  final String thumbImgUrl = task.getResult().getDownloadUrl().toString();
+                        thumb_path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                thumbImgUrl = uri.toString();
+                            }
+                        });
                         Map updateMessageAndList = new HashMap();
                         updateMessageAndList.put("/messages" +"/"+ FirebaseAuth.getInstance().getCurrentUser().getUid() +"/"+ other_user_id + "/" +  message_push_id + "/" + "message_text", thumbImgUrl);
                         updateMessageAndList.put("/messages" +"/"+ other_user_id + "/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/"+  message_push_id + "/"  + "message_text", thumbImgUrl);

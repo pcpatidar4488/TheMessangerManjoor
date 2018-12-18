@@ -292,6 +292,8 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
+    String imageUrl1;
+    String thumbImgUrl;
     private void uploadImageToServer() {
         if (filePath != null) {
             pd = new ProgressDialog(this);
@@ -325,17 +327,29 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    final String imageUrl = taskSnapshot.getDownloadUrl().toString();
+                   // final String imageUrl = taskSnapshot.getDownloadUrl().toString();
+                    thumb_path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            imageUrl1 = uri.toString();
+                        }
+                    });
                     UploadTask uploadTask = thumb_path.putBytes(finalByteArray);
                     uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 
                             if(task.isSuccessful()){
-                                final String thumbImgUrl = task.getResult().getDownloadUrl().toString();
+                                thumb_path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        thumbImgUrl = uri.toString();
+                                    }
+                                });
+                               // final String thumbImgUrl = task.getResult().getDownloadUrl().toString();
 
                                 Map update_HashMap = new HashMap();
-                                update_HashMap.put("image", imageUrl);
+                                update_HashMap.put("image", imageUrl1);
                                 update_HashMap.put("thumb_image", thumbImgUrl);
                                 FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance()
                                         .getCurrentUser().getUid()).updateChildren(update_HashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -343,7 +357,7 @@ public class SettingsActivity extends BaseActivity implements View.OnClickListen
                                     public void onComplete(@NonNull Task<Void> task) {
                                         pd.dismiss();
                                         if(task.isSuccessful()) {
-                                            Glide.with(SettingsActivity.this).load(imageUrl).centerCrop().into(ivProfilePic);
+                                            Glide.with(SettingsActivity.this).load(imageUrl1).centerCrop().into(ivProfilePic);
                                             AppUtils.getInstance().showSnackBar(getString(R.string.s_successfully_uploaded), llRootLayout);
                                             AppSharedPreferences.putString(SettingsActivity.this, AppSharedPreferences.PREF_KEY.THUMB_IMAGE,thumbImgUrl);
 

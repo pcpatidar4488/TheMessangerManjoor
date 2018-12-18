@@ -119,8 +119,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }else {
                         AppUtils.getInstance().showSnackBar(getResources().getString(R.string.s_no_internet), linearLayout);
                     }
-
-
                 }
                 break;
 
